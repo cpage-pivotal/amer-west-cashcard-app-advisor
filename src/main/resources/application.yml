@@ -20,3 +20,14 @@ spring:
   kafka:
     streams:
       cache-max-size-buffering: 100
+tanzu:
+  governance:
+    fips:
+      # Disables the governance starter checks when tests are run
+      exit-on-failure: false
+management:
+  endpoints:
+    web:
+      exposure:
+        # Exposes the governance starter endpoint
+        include: governance
