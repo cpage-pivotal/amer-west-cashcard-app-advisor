@@ -23,11 +23,11 @@ public class SecurityConfig {
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.
                 authorizeHttpRequests((authz) ->
-                        authz
-                                .requestMatchers(AntPathRequestMatcher.antMatcher("/cashcards/**")).hasRole("CARD-OWNER")
-                                .requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")).permitAll()
-                )
-                .csrf().disable()
+                authz
+                        .requestMatchers(AntPathRequestMatcher.antMatcher("/cashcards/**")).hasRole("CARD-OWNER")
+                        .requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")).permitAll()
+        )
+        .csrf(csrf -> csrf.disable())
                 .httpBasic(withDefaults());
         return http.build();
     }
