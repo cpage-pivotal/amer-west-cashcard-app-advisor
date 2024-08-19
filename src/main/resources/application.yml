@@ -19,4 +19,20 @@ spring:
 
   kafka:
     streams:
-      cache-max-size-buffering: 100
+      state-store-cache-max-size: 100
+tanzu:
+  governance:
+    fips:
+      # Disables the governance starter checks when tests are run
+      exit-on-failure: false
+management:
+  endpoints:
+    web:
+      exposure:
+        # Exposes the governance starter endpoint
+        include: governance
+  endpoint:
+    health:
+      # [Spring Advisor]: This property disables health-group-membership-validation with boot 3.1 for backwards compatible reasons, but the Spring team encourages to enable it.
+
+      validate-group-membership: false
