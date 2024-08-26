@@ -1,7 +1,24 @@
 name: spring-app-advisor-workflow
 on: [push]
 jobs:
-  tanzu_deploy_job:
+  cf_push_job:
+    runs-on: ubuntu-latest
+    name: Push Spring App to Cloud Foundry
+    defaults:
+      run:
+        shell:
+          bash
+    steps:
+      - name: Deploy to CF
+        uses: evandropizaniramos/cf8-cli-action@v0.0.4
+        with:
+          cf_api: https://api.sys.dhaka.cf-app.com
+          cf_user: ${{ secrets.CfUser }}
+          cf_pwd: ${{ secrets.CfPassword }}
+          cf_org: corby-org
+          cf_space: corby-space
+          cf_command: push -f cf-manifest.yaml
+  app_advisor_job:
     runs-on: ubuntu-latest
     permissions: write-all
     name: Upgrade Spring Application Dependencies
