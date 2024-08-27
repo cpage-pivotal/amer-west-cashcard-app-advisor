@@ -91,4 +91,10 @@
 			<url>http://maven.tanzu.corby.page:8081/repository/spring-enterprise/</url>
 		</repository>
 	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-enterprise-plugins</id>
+			<url>http://maven.tanzu.corby.page:8081/repository/spring-enterprise/</url>
+		</pluginRepository>
+	</pluginRepositories>
 </project>
