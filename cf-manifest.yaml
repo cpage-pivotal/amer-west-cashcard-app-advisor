@@ -2,7 +2,7 @@ applications:
   - name: cashcard
     memory: 1G
     instances: 1
-    path: ./target/family-cash-cards-0.0.1.jar
+    path: ./target/family-cash-cards-0.0.1-SNAPSHOT.jar
     buildpacks:
       - java_buildpack_offline
     env:
